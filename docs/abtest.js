@@ -9,6 +9,13 @@ class MyAbTest {
       this.setCookie(variant);
     }
     this.setVariant(variant);
+    this.armClearCookieButton();
+  }
+  static armClearCookieButton() {
+    const that = this;
+    document.getElementsByClassName("my-clear-cookies")[0].onclick = function() {
+      that.deleteCookie();
+    }
   }
   static addDaysToCurrentDate(days = 30) {
     const date = new Date();
