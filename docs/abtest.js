@@ -10,12 +10,30 @@ class MyAbTest {
     }
     this.setVariant(variant);
     this.armClearCookieButton();
+    this.armBigBox();
   }
   static armClearCookieButton() {
     const that = this;
-    document.getElementsByClassName("my-clear-cookies")[0].onclick = function() {
+    this.onClick('my-clear-cookies', function() {
       that.deleteCookie();
-    }
+    });
+  }
+  static armBigBox() {
+    const that = this;
+    this.onClick('my-big-box', function() {
+      const divStr = '<div>Vous avez cliqué sur le bloc.</div>';
+      document.getElementsByTagName('body')[0].innerHTML += divStr;
+      // Not sure why this is needed, but otherwise, the event fires only once.
+      that.armBigBox();
+    });
+  }
+  static onClick(className, callback) {
+    Array.prototype.forEach.call(
+      document.getElementsByClassName(className),
+      function(element) {
+        element.onclick = callback;
+      },
+    );
   }
   static addDaysToCurrentDate(days = 30) {
     const date = new Date();
