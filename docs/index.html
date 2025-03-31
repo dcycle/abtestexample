@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>A / B Testing</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .my-big-box {
+        height: 100px;
+        width: 100px;
+        background-color: green;
+      }
+      .my-variant-B .my-big-box {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body class="my-variant-A">
+    <h1>Exemple pour des tests a / b</h1>
+    <p>Vous voyez la variante <span class="my-variant-name">A</span>.</p>
+    <div class="my-big-box"></div>
+    <script src="abtest.js"></script>
+    <script>
+      MyAbTest.init();
+    </script>
+  </body>
+</html>
