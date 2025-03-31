@@ -56,8 +56,8 @@ class MyAbTest {
     document.cookie = `myAbTest=${variant};expires=${expires};path=/`;
   }
   static setVariant(variant = 'A') {
-    document.body.classList.remove('my-variant-a');
-    document.body.classList.remove('my-variant-b');
+    document.body.classList.remove('my-variant-A');
+    document.body.classList.remove('my-variant-B');
     document.body.classList.add('my-variant-' + variant);
     document.getElementsByClassName("my-variant-name")[0].innerHTML = variant;
   }
